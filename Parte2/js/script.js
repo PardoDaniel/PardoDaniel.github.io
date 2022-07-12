@@ -1,10 +1,26 @@
       
 let mayus = document.getElementById("btn_mayusculas")
 let dog = document.getElementById("btn_ahumano")
+let pokemons = document.getElementById("btn_muestra")
+
 
 mayus.addEventListener("click",ConvertirMayusculas)
 dog.addEventListener("click",calculateDogAge)
+pokemons.addEventListener("click",MuestraPokemon)
 
+class Pokemon {
+  nombre = ""
+  especie = ""
+  ataque = 0
+  defensa = 0
+
+  constructor(nom,esp,ata,def){
+    this.nombre = nom
+    this.especie = esp
+    this.ataque = ata
+    this.defensa = def
+  }
+}
 function ConvertirMayusculas(event){
   event.preventDefault()
   let texto = document.getElementById("txt_may").value
@@ -14,11 +30,23 @@ function ConvertirMayusculas(event){
 }
 function calculateDogAge(event){
   event.preventDefault()
-  let edad_humano = document.getElementById("edad_humano").value
-  let edad_perro = edad_humano * 7
-  console.log(edad_perro)
-  let placeholder_edad = document.getElementById("edad_perro")
-  placeholder_edad.innerHTML = edad_perro
+  let human_age = document.getElementById("edad_humano").value
+  let dog_age = human_age * 7
+  document.getElementById("edad_perro").value = dog_age
+}
+function MuestraPokemon(event){
+  event.preventDefault()
+  const charmander = new Pokemon("Charmander","Dragon",10,7)
+  const pikachu = new Pokemon("Pikachu",'Electrico',9,9)
+  document.getElementById(nombre_poke1).value = pikachu.nombre
+  document.getElementById(especie_poke1).value = pikachu.especie
+  document.getElementById(ataque_poke1).value = pikachu.nombre
+  document.getElementById(defensa_poke1).value = pikachu.nombre
+  document.getElementById(nombre_poke2).value = charmander.nombre
+  document.getElementById(especie_poke2).value = charmander.especie
+  document.getElementById(ataque_poke2).value = charmander.nombre
+  document.getElementById(defensa_poke2).value = charmander.nombre
+
 }
       /*
         Crea una funcion llamada "calculateDogAge" que: 
